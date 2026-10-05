@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>BlewIt</title>
 </head>
-<body>
-    
+<body class="background-color">
+    <h1>BlewIt</h1>
 </body>
 </html>
