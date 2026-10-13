@@ -1,5 +1,5 @@
 <?php
-require_once 'assets/sessioncheck.php';
+require_once '../assets/sessioncheck.php';
 session_start();
 if(isset($_POST['submit'])){
     if(($_POST['username'] != "") || ($_POST['password'] != "")){
