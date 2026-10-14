@@ -117,6 +117,7 @@ function createDM($userId, $userName) {
         return false;
     }
 }
+
 function getDmList($userId) {
     global $blewIt;
     $sql = "SELECT DM_Id FROM Direct_Message_member WHERE User_Id = :userId";
@@ -134,7 +135,7 @@ function createRoom($roomName){
     global $blewIt;
     $sql = "INSERT INTO Room (Name) VALUES (:roomName)";
     $stmt = $blewIt->prepare($sql);
-    $stmt-bindParam(':roomName', $roomName);
+    $stmt->bindParam(':roomName', $roomName);
     try {
         $stmt->execute();
         return true;
@@ -143,9 +144,33 @@ function createRoom($roomName){
         return false;
     }
 }
-function addRoomUser($room_id, $user, $role){
+function getRoleId($roleName, $room_id) {
+    global $blewit;
+    $sql = "SELECT Role_Id FROM Role WHERE Name = :roleName AND Room_Id = :room_id";
+    $stmt = $blewIt-prepare($sql);
+    $stmt->bindParam(':roleName', $roleName);
+    $stmt->bindParam(':room_id', $room_id);
+    try{
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: ". $e->getMessage();
+        return false;
+    }
+}
+function addRoomUser($roomName, $user, $role){
     global $blewIt;
-    $sql = "INSERT INTO Room_member (Room_Id, User_Id, Role_Id) VALUES (:room_id, :user_id, :role_id";
+    $sql = "INSERT INTO Room_member (Room_Id, User_Id, Role_Id) VALUES (:room_id, :user_id, :role_id)";
     $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam
+    $stmt->bindParam(':Room_id', $room_id);
+    $stmt->bindParam(':user:id', getUserId($user));
+    $stmt->bindParam(':role_id', getRoleId($role, $roomName));
+    try{
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: ". $e->getMessage();
+        return false;
+    }
+
 }
