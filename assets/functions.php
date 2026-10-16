@@ -1,8 +1,12 @@
 <?php
+
+require_once 'db.php';
+
 function hashPass($password) {
     return password_hash($password, PASSWORD_DEFAULT);
 }
 function addUser($login) {
+    echo "AddUser";
     global $blewIt;
     $sql = "INSERT INTO User (username, displayname, password, email) VALUES (:username, :displayname, :password, :email)";
     $stmt = $blewIt->prepare($sql);
@@ -51,7 +55,7 @@ function sendChannelMessage($sender_Id, $content, $channelId){
 }
 function getUserId($username) {
     global $blewIt;
-    $sql = "SELECT user_Id FROM users WHERE username = :username";
+    $sql = "SELECT user_Id FROM User WHERE username = :username";
     $stmt = $blewIt->prepare($sql);
     $stmt->bindParam(':username', $username);
     try {
@@ -65,7 +69,7 @@ function getUserId($username) {
 }
 function login($username, $password) {
     global $blewIt;
-    $sql = "SELECT password FROM users WHERE username = :username";
+    $sql = "SELECT password FROM User WHERE username = :username";
     $stmt = $blewIt->prepare($sql);
     $stmt->bindParam(':username', $username);
     try {
@@ -172,5 +176,4 @@ function addRoomUser($roomName, $user, $role){
         echo "Error: ". $e->getMessage();
         return false;
     }
-
 }
