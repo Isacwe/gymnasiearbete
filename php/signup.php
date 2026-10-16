@@ -1,32 +1,34 @@
-<?php
-require_once 'assets/sessioncheck.php';
-session_start();
-$error = false;
-if(isset($_POST['submit'])){
-    if(($_POST['username'] != "") || ($_POST['displayname'] != "") || ($_POST['password'] != "") || ($_POST['email'] != "")){
-        $username = $_POST['username'];
-        $displayname = $_POST['displayname'];
-        $password = hasPass($_POST['password']);
-        if($filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)){
-            echo "Valid email format";
-            $emial = $_POST['email'];
-        } else {
-            echo "Invalid email format";
-            $error = true;
-        }
-        $createdAt = date('Y-m-d H:i:s');
-        $login = ["username" => $username, "displayname" => $displayname, "password" => $password, "email" => $email, "createdAt" => $createdAt];
-        if(addUser($login)){
-            echo "User added successfully";
-            $_SESSION['username'] = $username;
-            $_SESSION['displayname'] = $displayname;
-            $_SESSION['email'] = $email;
-$_SESSION['createdAt'] = $createdAt;
-            $_SESSION['userId'] = getUserId($username);
-        } else {
-            echo "Error adding user";
-            $error = true;
-    }
-}
-}
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styleSignup.css">
+    <title>Signup</title>
+</head>
+<body>
+    <div id="page-transition"></div>
+    <h2>Signup</h2>
+    <form method="POST" action="">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+
+        <label for="displayname">Display Name:</label>
+        <input type="text" id="displayname" name="displayname" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+
+        <button type="submit" name="submit">Signup</button>
+    </form>
+</body>
+</html>
+
+<!--Username, displayname, password, email-->
