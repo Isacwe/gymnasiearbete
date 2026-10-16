@@ -1,0 +1,189 @@
+body {
+    background-color: #bfcdda;
+    animation: backgroundReveal 0.8s ease-out forwards;
+}
+
+#page-transition {
+    position: fixed;
+    inset: 0;
+    background-color: #0000ff;
+    z-index: 99999;
+    pointer-events: none;
+    animation: blueReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+
+@keyframes signupEnter {
+    0% {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes removeOverlay {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes blueReveal {
+    0% {
+        opacity: 1;
+        background-color: #0000ff;
+    }
+    5% {
+        opacity: 1;
+        background-color: #0808ff;
+    }
+    10% {
+        opacity: 1;
+        background-color: #1111ff;
+    }
+    15% {
+        opacity: 1;
+        background-color: #1b1bff;
+    }
+    20% {
+        opacity: 1;
+        background-color: #2525ff;
+    }
+    25% {
+        opacity: 1;
+        background-color: #3030ff;
+    }
+    30% {
+        opacity: 1;
+        background-color: #3c3cff;
+    }
+    35% {
+        opacity: 1;
+        background-color: #4848ff;
+    }
+    40% {
+        opacity: 1;
+        background-color: #5555ff;
+    }
+    45% {
+        opacity: 1;
+        background-color: #6262ff;
+    }
+    50% {
+        opacity: 1;
+        background-color: #7070ff;
+    }
+    55% {
+        opacity: 1;
+        background-color: #7d7dff;
+    }
+    60% {
+        opacity: 1;
+        background-color: #898fff;
+    }
+    65% {
+        opacity: 1;
+        background-color: #96a0ff;
+    }
+    70% {
+        opacity: 1;
+        background-color: #a3afff;
+    }
+    75% {
+        opacity: 1;
+        background-color: #b0bbff;
+    }
+    80% {
+        opacity: 1;
+        background-color: #bdc7ff;
+    }
+    85% {
+        opacity: 0.9;
+        background-color: #c5cefa;
+    }
+    90% {
+        opacity: 0.7;
+        background-color: #cbd3ef;
+    }
+    95% {
+        opacity: 0.4;
+        background-color: #cfd7e3;
+    }
+    100% {
+        opacity: 0;
+        background-color: #bfcdda;
+        visibility: hidden;
+    }
+}
+
+@keyframes backgroundReveal {
+    0% {
+        background-color: #0000ff;
+    }
+    5% {
+        background-color: #0808ff;
+    }
+    10% {
+        background-color: #1111ff;
+    }
+    15% {
+        background-color: #1b1bff;
+    }
+    20% {
+        background-color: #2525ff;
+    }
+    25% {
+        background-color: #3030ff;
+    }
+    30% {
+        background-color: #3c3cff;
+    }
+    35% {
+        background-color: #4848ff;
+    }
+    40% {
+        background-color: #5555ff;
+    }
+    45% {
+        background-color: #6262ff;
+    }
+    50% {
+        background-color: #7070ff;
+    }
+    55% {
+        background-color: #7d7dff;
+    }
+    60% {
+        background-color: #899bff;
+    }
+    65% {
+        background-color: #96a7f5;
+    }
+    70% {
+        background-color: #a3b2eb;
+    }
+    75% {
+        background-color: #afbee5;
+    }
+    80% {
+        background-color: #b8c6e0;
+    }
+    85% {
+        background-color: #bdcbdc;
+    }
+    90% {
+        background-color: #bfcdda;
+    }
+    95% {
+        background-color: #bfcdda;
+    }
+    100% {
+        background-color: #bfcdda;
+    }
+}
