@@ -1,16 +1,64 @@
+html {
+    background-color: #bfcdda;
+}
+
 body {
     background-color: #bfcdda;
-    animation: backgroundReveal 0.8s ease-out forwards;
+    margin: 0;
+}
+
+.signup-title {
+    text-align: center;
+
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 80px;
+    letter-spacing: 6px;
+    line-height: 1.2;
+    color: #f5f0df;
+    -webkit-text-stroke: 1.5px #f5f0df;
+
+    text-shadow:
+        2px 2px 0 rgba(80, 65, 45, 0.25),
+        -1px 0 0 rgba(80, 65, 45, 0.12);
+    text-shadow: 2px 2px;
+
+    text-decoration: underline;
+}
+
+.cloud-text {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: 6px;
+    line-height: 1.2;
+    color: #f5f0df;
+    -webkit-text-stroke: 1.5px #f5f0df;
+
+    text-shadow:
+        1px 1px 0 rgba(80, 65, 45, 0.25),
+        -1px 0 0 rgba(80, 65, 45, 0.12);
+
+    text-decoration: underline;
 }
 
 #page-transition {
     position: fixed;
     inset: 0;
-    background-color: #0000ff;
+    background-color: #bfcdda;
     z-index: 99999;
     pointer-events: none;
-    animation: blueReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
+    opacity: 0;
+    visibility: hidden;
+}
+
+#page-transition.play-reveal {
+    background-color: #0000ff;
+    opacity: 1;
+    visibility: visible;
+
+    animation: blueReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes blueReveal {
@@ -421,308 +469,120 @@ body {
     }
 }
 
-@keyframes backgroundReveal {
-    0% {
-        background-color: #0000ff;
-    }
-    1% {
-        background-color: #0202ff;
-    }
-    2% {
-        background-color: #0303ff;
-    }
-    3% {
-        background-color: #0505ff;
-    }
-    4% {
-        background-color: #0606ff;
-    }
-    5% {
-        background-color: #0808ff;
-    }
-    6% {
-        background-color: #0a0aff;
-    }
-    7% {
-        background-color: #0c0cff;
-    }
-    8% {
-        background-color: #0e0eff;
-    }
-    9% {
-        background-color: #1010ff;
-    }
-    10% {
-        background-color: #1111ff;
-    }
-    11% {
-        background-color: #1313ff;
-    }
-    12% {
-        background-color: #1515ff;
-    }
-    13% {
-        background-color: #1717ff;
-    }
-    14% {
-        background-color: #1919ff;
-    }
-    15% {
-        background-color: #1b1bff;
-    }
-    16% {
-        background-color: #1d1dff;
-    }
-    17% {
-        background-color: #1f1fff;
-    }
-    18% {
-        background-color: #2121ff;
-    }
-    19% {
-        background-color: #2323ff;
-    }
-    20% {
-        background-color: #2525ff;
-    }
-    21% {
-        background-color: #2727ff;
-    }
-    22% {
-        background-color: #2929ff;
-    }
-    23% {
-        background-color: #2c2cff;
-    }
-    24% {
-        background-color: #2e2eff;
-    }
-    25% {
-        background-color: #3030ff;
-    }
-    26% {
-        background-color: #3232ff;
-    }
-    27% {
-        background-color: #3434ff;
-    }
-    28% {
-        background-color: #3737ff;
-    }
-    29% {
-        background-color: #3939ff;
-    }
-    30% {
-        background-color: #3c3cff;
-    }
-    31% {
-        background-color: #3e3eff;
-    }
-    32% {
-        background-color: #4141ff;
-    }
-    33% {
-        background-color: #4343ff;
-    }
-    34% {
-        background-color: #4646ff;
-    }
-    35% {
-        background-color: #4848ff;
-    }
-    36% {
-        background-color: #4b4bff;
-    }
-    37% {
-        background-color: #4d4dff;
-    }
-    38% {
-        background-color: #5050ff;
-    }
-    39% {
-        background-color: #5252ff;
-    }
-    40% {
-        background-color: #5555ff;
-    }
-    41% {
-        background-color: #5858ff;
-    }
-    42% {
-        background-color: #5a5aff;
-    }
-    43% {
-        background-color: #5d5dff;
-    }
-    44% {
-        background-color: #5f5fff;
-    }
-    45% {
-        background-color: #6262ff;
-    }
-    46% {
-        background-color: #6565ff;
-    }
-    47% {
-        background-color: #6767ff;
-    }
-    48% {
-        background-color: #6a6aff;
-    }
-    49% {
-        background-color: #6c6cff;
-    }
-    50% {
-        background-color: #7070ff;
-    }
-    51% {
-        background-color: #7272ff;
-    }
-    52% {
-        background-color: #7474ff;
-    }
-    53% {
-        background-color: #7777ff;
-    }
-    54% {
-        background-color: #7a7aff;
-    }
-    55% {
-        background-color: #7d7dff;
-    }
-    56% {
-        background-color: #8084ff;
-    }
-    57% {
-        background-color: #8287ff;
-    }
-    58% {
-        background-color: #858bff;
-    }
-    59% {
-        background-color: #878eff;
-    }
-    60% {
-        background-color: #899bff;
-    }
-    61% {
-        background-color: #8c9cff;
-    }
-    62% {
-        background-color: #8e9dfa;
-    }
-    63% {
-        background-color: #919ef8;
-    }
-    64% {
-        background-color: #939ff7;
-    }
-    65% {
-        background-color: #96a7f5;
-    }
-    66% {
-        background-color: #98a8f3;
-    }
-    67% {
-        background-color: #9aa9f1;
-    }
-    68% {
-        background-color: #9dacef;
-    }
-    69% {
-        background-color: #9fad ed;
-    }
-    70% {
-        background-color: #a3b2eb;
-    }
-    71% {
-        background-color: #a5b4e9;
-    }
-    72% {
-        background-color: #a7b6e8;
-    }
-    73% {
-        background-color: #a9b8e7;
-    }
-    74% {
-        background-color: #acbae6;
-    }
-    75% {
-        background-color: #afbee5;
-    }
-    76% {
-        background-color: #b1c0e4;
-    }
-    77% {
-        background-color: #b3c2e3;
-    }
-    78% {
-        background-color: #b5c3e2;
-    }
-    79% {
-        background-color: #b7c5e1;
-    }
-    80% {
-        background-color: #b8c6e0;
-    }
-    81% {
-        background-color: #bac7df;
-    }
-    82% {
-        background-color: #bbc8de;
-    }
-    83% {
-        background-color: #bcc9dd;
-    }
-    84% {
-        background-color: #bdcadc;
-    }
-    85% {
-        background-color: #bdcbdc;
-    }
-    86% {
-        background-color: #becbdb;
-    }
-    87% {
-        background-color: #becbdb;
-    }
-    88% {
-        background-color: #bfccda;
-    }
-    89% {
-        background-color: #bfccda;
-    }
-    90% {
-        background-color: #bfcdda;
-    }
-    91% {
-        background-color: #bfcdda;
-    }
-    92% {
-        background-color: #bfcdda;
-    }
-    93% {
-        background-color: #bfcdda;
-    }
-    94% {
-        background-color: #bfcdda;
-    }
-    95% {
-        background-color: #bfcdda;
-    }
-    96% {
-        background-color: #bfcdda;
-    }
-    97% {
-        background-color: #bfcdda;
-    }
-    98% {
-        background-color: #bfcdda;
-    }
-    99% {
-        background-color: #bfcdda;
-    }
-    100% {
-        background-color: #bfcdda;
-    }
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    max-width: 400px;
+    height: 50px;
+
+    padding: 12px 15px;
+    margin-top: 8px;
+
+    font-size: 18px;
+    box-sizing: border-box;
+
+    border: 1px solid #aab5c2;
+    border-radius: 10px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #2929eb;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.2);
+}
+
+.reveal-item {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.reveal-item.show {
+    animation: dropIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-item:nth-child(1) {
+    animation-delay: 0s;
+}
+.reveal-item:nth-child(2) {
+    animation-delay: 0.12s;
+}
+.reveal-item:nth-child(3) {
+    animation-delay: 0.24s;
+}
+.reveal-item:nth-child(4) {
+    animation-delay: 0.36s;
+}
+.reveal-item:nth-child(5) {
+    animation-delay: 0.48s;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    width: fit-content;
+    margin: 0 auto;
+    padding: 25px;
+
+    position: relative;
+    border-radius: 10px;
+
+    background-color: #bfcdda;
+}
+
+.form-group .animated-border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+
+    visibility: hidden;
+}
+
+.animated-border rect {
+    fill: none;
+    stroke: black;
+    stroke-width: 1;
+    stroke-linejoin: round;
+    stroke-linecap: butt;
+
+    stroke-dasharray: var(--border-length, 1000);
+    stroke-dashoffset: var(--border-length, 1000);
+}
+
+.form-group.border-appear .animated-border {
+    visibility: visible;
+}
+
+.form-group.border-appear .animated-border rect {
+    animation: drawBorder 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes drawBorder {
+    from {
+        stroke-dashoffset: var(--border-length);
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
