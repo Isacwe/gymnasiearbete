@@ -1,7 +1,3 @@
-html {
-    background-color: #bfcdda;
-}
-
 body {
     background-color: #bfcdda;
     margin: 0;
@@ -9,37 +5,6 @@ body {
 
 .signup-title {
     text-align: center;
-
-    font-family: 'Baloo 2', cursive;
-    font-weight: 800;
-    font-size: 80px;
-    letter-spacing: 6px;
-    line-height: 1.2;
-    color: #f5f0df;
-    -webkit-text-stroke: 1.5px #f5f0df;
-
-    text-shadow:
-        2px 2px 0 rgba(80, 65, 45, 0.25),
-        -1px 0 0 rgba(80, 65, 45, 0.12);
-    text-shadow: 2px 2px;
-
-    text-decoration: underline;
-}
-
-.cloud-text {
-    font-family: 'Baloo 2', cursive;
-    font-weight: 800;
-    font-size: 40px;
-    letter-spacing: 6px;
-    line-height: 1.2;
-    color: #f5f0df;
-    -webkit-text-stroke: 1.5px #f5f0df;
-
-    text-shadow:
-        1px 1px 0 rgba(80, 65, 45, 0.25),
-        -1px 0 0 rgba(80, 65, 45, 0.12);
-
-    text-decoration: underline;
 }
 
 #page-transition {
@@ -470,60 +435,16 @@ body {
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
-    width: 100%;
-    max-width: 400px;
-    height: 50px;
-
-    padding: 12px 15px;
-    margin-top: 8px;
-
-    font-size: 18px;
+    max-width: 200px;
+    height: 30px;
+    font-size: 15px;
     box-sizing: border-box;
-
-    border: 1px solid #aab5c2;
-    border-radius: 10px;
-    outline: none;
+    border-radius: 5px;
 }
 
 input:focus {
     border-color: #2929eb;
     box-shadow: 0 0 5px rgba(0, 0, 255, 0.2);
-}
-
-.reveal-item {
-    opacity: 0;
-    transform: translateY(-30px);
-}
-
-.reveal-item.show {
-    animation: dropIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes dropIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.reveal-item:nth-child(1) {
-    animation-delay: 0s;
-}
-.reveal-item:nth-child(2) {
-    animation-delay: 0.12s;
-}
-.reveal-item:nth-child(3) {
-    animation-delay: 0.24s;
-}
-.reveal-item:nth-child(4) {
-    animation-delay: 0.36s;
-}
-.reveal-item:nth-child(5) {
-    animation-delay: 0.48s;
 }
 
 .form-group {
@@ -537,52 +458,62 @@ input:focus {
     padding: 25px;
 
     position: relative;
-    border-radius: 10px;
+    border-radius: 20px;
 
-    background-color: #bfcdda;
+    border: 3px solid transparent;
+    box-shadow:
+        0 0 10px rgba(0, 198, 255, 0.5),
+        0 0 25px rgba(65, 105, 225, 0.3),
+        inset 0 0 15px rgba(135, 206, 235, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-.form-group .animated-border {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    pointer-events: none;
-
-    visibility: hidden;
-}
-
-.animated-border rect {
-    fill: none;
-    stroke: black;
-    stroke-width: 1;
-    stroke-linejoin: round;
-    stroke-linecap: butt;
-
-    stroke-dasharray: var(--border-length, 1000);
-    stroke-dashoffset: var(--border-length, 1000);
-}
-
-.form-group.border-appear .animated-border {
-    visibility: visible;
-}
-
-.form-group.border-appear .animated-border rect {
-    animation: drawBorder 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-
-@keyframes drawBorder {
-    from {
-        stroke-dashoffset: var(--border-length);
-    }
-    to {
-        stroke-dashoffset: 0;
-    }
+.form-group:hover {
+    box-shadow:
+        0 0 15px rgba(0, 198, 255, 0.7),
+        0 0 35px rgba(65, 105, 225, 0.5),
+        inset 0 0 20px rgba(135, 206, 235, 0.15);
 }
 
 .form-field {
     display: flex;
     flex-direction: column;
     gap: 6px;
+}
+
+.svampKnapp {
+    background: url(../files/Bilder/jSON.jpg) no-repeat;
+    background-size: 50px 50px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border: none;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    background-position: center;
+}
+
+.svampKnapp:active {
+    background: url(../files/Bilder/jSON.jpg) no-repeat;
+    background-size: 50px 50px;
+}
+
+.video-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
 }
