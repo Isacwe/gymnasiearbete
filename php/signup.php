@@ -13,37 +13,36 @@
 <body>
     <div id="page-transition"></div>
 
-    <h2 class="signup-title reveal-item">Signup</h2>
+    <div class="video-background">
+    <video autoplay muted loop playsinline>
+        <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
+    </video>
+    </div>
+
+    <h2 class="signup-title">Signup</h2>
 
     <form method="POST" action="" class="form-group">
-
-        <svg class="animated-border" aria-hidden="true">
-        <rect x="1" y="1" width="100" height="100" rx="10" ry="10"/>
-        </svg>
-
-        <div class="form-field reveal-item">
-            <label for="username" class="cloud-text">Username:</label>
+        <div class="form-field">
+            <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
         </div>
 
-        <div class="form-field reveal-item">
-            <label for="displayname" class="cloud-text">Display Name:</label>
+        <div class="form-field">
+            <label for="displayname">Display Name:</label>
             <input type="text" id="displayname" name="displayname" required>
         </div>
 
-        <div class="form-field reveal-item">
-            <label for="email" class="cloud-text">Email:</label>
+        <div class="form-field">
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
         </div>
 
-        <div class="form-field reveal-item">
-            <label for="password" class="cloud-text">Password:</label>
+        <div class="form-field">
+            <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
 
-        <button type="submit" name="submit" class="reveal-item">
-            Signup
-        </button>
+        <button type="submit" name="submit" class="svampKnapp"></button>
     </form>
 
     <script src="../Javascript/signup.js"></script>
