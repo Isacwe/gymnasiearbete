@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
         $password = hashPass($_POST['password']);
         if(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)){
             echo "Valid email format";
-            $emil = $_POST['email'];
+            $email = $_POST['email'];
         } else {
             echo "Invalid email format";
             $error = true;
