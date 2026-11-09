@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../css/styleSignup.css">
     <title>Signup</title>
 
@@ -19,9 +18,9 @@
     </video>
     </div>
 
-    <h2 class="signup-title">Signup</h2>
+    <h2 class="signup-title" id="cloud-text">Signup</h2>
 
-    <form method="POST" action="" class="form-group">
+    <form method="POST" action="" class="form-group" id="cloud-text">
         <div class="form-field">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>

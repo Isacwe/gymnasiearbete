@@ -5,6 +5,8 @@ body {
 
 .signup-title {
     text-align: center;
+    text-decoration: underline;
+    font-size: 64px;
 }
 
 #page-transition {
@@ -13,7 +15,6 @@ body {
     background-color: #bfcdda;
     z-index: 99999;
     pointer-events: none;
-
     opacity: 0;
     visibility: hidden;
 }
@@ -22,7 +23,6 @@ body {
     background-color: #0000ff;
     opacity: 1;
     visibility: visible;
-
     animation: blueReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
@@ -466,6 +466,7 @@ input:focus {
         0 0 25px rgba(65, 105, 225, 0.3),
         inset 0 0 15px rgba(135, 206, 235, 0.1);
     transition: box-shadow 0.3s ease;
+    text-decoration: underline dotted;
 }
 
 .form-group:hover {
@@ -482,7 +483,7 @@ input:focus {
 }
 
 .svampKnapp {
-    background: url(../files/Bilder/jSON.jpg) no-repeat;
+    background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) no-repeat;
     background-size: 50px 50px;
     display: block;
     margin: 0 auto;
@@ -492,11 +493,16 @@ input:focus {
     height: 50px;
     align-items: center;
     background-position: center;
+
+    border-radius: 50%;
+    transition: transform 0.09s ease-in-out;
 }
 
-.svampKnapp:active {
-    background: url(../files/Bilder/jSON.jpg) no-repeat;
-    background-size: 50px 50px;
+.svampKnapp:hover {
+    background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) no-repeat;
+    border-radius: 50%;
+    background-size: 50px 50px; 
+    transform: scale(1.1);
 }
 
 .video-background {
@@ -516,4 +522,24 @@ input:focus {
     height: 100%;
     object-fit: cover;
     transform: translate(-50%, -50%);
+}
+
+#cloud-text {
+    font-family: 'Baloo 2', cursive;
+    letter-spacing: 6px;
+    color: #fffdf5;
+    text-shadow:
+        0 2px 3px rgba(100, 160, 200, 0.15),
+        0 4px 8px rgba(70, 130, 180, 0.2),
+        0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+#cloud-text.form-group {
+    font-family: 'Baloo 2', cursive;
+    letter-spacing: 1px;
+    color: #0a0a0a;
+    text-shadow:
+        0 2px 3px rgba(100, 160, 200, 0.15),
+        0 4px 8px rgba(70, 130, 180, 0.2),
+        0 0 12px rgba(255, 255, 255, 0.5);
 }
