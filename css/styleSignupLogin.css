@@ -442,12 +442,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     border-radius: 5px;
 }
 
-input:focus {
-    border-color: #2929eb;
-    box-shadow: 0 0 5px rgba(0, 0, 255, 0.2);
-}
-
-.form-group {
+.form-group-signup {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -469,11 +464,47 @@ input:focus {
     text-decoration: underline dotted;
 }
 
-.form-group:hover {
+.form-group-signup:hover {
     box-shadow:
         0 0 15px rgba(0, 198, 255, 0.7),
         0 0 35px rgba(65, 105, 225, 0.5),
         inset 0 0 20px rgba(135, 206, 235, 0.15);
+}
+
+.form-group-login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    width: fit-content;
+    margin: 0 auto;
+    padding: 25px;
+
+    position: relative;
+    border-radius: 20px;
+
+    border: 3px solid transparent;
+    box-shadow:
+        0 0 10px rgba(0, 198, 255, 0.5),
+        0 0 25px rgba(65, 105, 225, 0.3),
+        inset 0 0 15px rgba(135, 206, 235, 0.1);
+    transition: box-shadow 0.3s ease;
+    text-decoration: underline dotted;
+}
+
+.form-group-login:hover {
+    box-shadow:
+    0 0 15px rgba(0, 255, 100, 0.7),
+    0 0 35px rgba(0, 200, 80, 0.5),
+    inset 0 0 20px rgba(144, 238, 144, 0.15);
+}
+
+.form-group-login.login-error:hover {
+    box-shadow:
+        0 0 15px rgba(255, 50, 50, 0.7),
+        0 0 35px rgba(200, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 100, 100, 0.15);
 }
 
 .form-field {
@@ -526,7 +557,7 @@ input:focus {
 
 #cloud-text {
     font-family: 'Baloo 2', cursive;
-    letter-spacing: 6px;
+    letter-spacing: 1px;
     color: #fffdf5;
     text-shadow:
         0 2px 3px rgba(100, 160, 200, 0.15),
@@ -542,4 +573,50 @@ input:focus {
         0 2px 3px rgba(100, 160, 200, 0.15),
         0 4px 8px rgba(70, 130, 180, 0.2),
         0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+#forgotPass {
+    letter-spacing: 1px;
+    text-decoration: underline dashed;
+    color: rgb(113, 145, 189);
+    margin-left: 25px;
+    transition: color 0.2s ease-in-out;
+}
+
+#forgotPass:hover {
+    color: rgb(209, 114, 114);
+}
+
+#email {
+    border: 1px solid rgb(52, 114, 131);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+#email:invalid:not(:placeholder-shown) {
+    border: 1px solid rgb(255, 70, 70);
+    box-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+}
+
+#email:valid {
+    border: 1px solid rgb(0, 255, 100);
+    box-shadow: 0 0 10px rgba(0, 255, 100, 0.5);
+}
+
+#username {
+    border: 1px solid rgb(52, 114, 131);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+#displayname {
+    border: 1px solid rgb(52, 114, 131);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+#password {
+    border: 1px solid rgb(52, 114, 131);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.4);
+    transition: all 0.3s ease-in-out;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styleSignup.css">
+    <link rel="stylesheet" href="../css/styleSignupLogin.css">
     <title>Signup</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 
     <h2 class="signup-title" id="cloud-text">Signup</h2>
 
-    <form method="POST" action="" class="form-group" id="cloud-text">
+    <form method="POST" action="" class="form-group-signup" id="cloud-text">
         <div class="form-field">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -33,7 +33,7 @@
 
         <div class="form-field">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="enter valid email" required >
         </div>
 
         <div class="form-field">
@@ -44,6 +44,6 @@
         <button type="submit" name="submit" class="svampKnapp"></button>
     </form>
 
-    <script src="../Javascript/signup.js"></script>
+    <script src="../Javascript/signupLogin.js"></script>
 </body>
 </html>
