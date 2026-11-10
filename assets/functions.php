@@ -177,4 +177,30 @@ function addRoomUser($roomName, $user, $role){
         return false;
     }
 }
-function createChannel($channelName)
+function createChannel($channelName, $room_id) {
+    global $blewIt;
+    $sql = "INSERT INTO Channel (`Room_Id`, `Name`) VALUES (:room_id, :channel_name)";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':room_id', $room_id);
+    $stmt->bindParam(':channel_name', $channel_name);
+    try{
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: ". $e->getMessage();
+        return false;
+    }
+}
+function getChannelMessage($channel_id){
+    global $blewIt;
+    $sql = "SELECT * FROM `Message` WHERE Channel_Id = :Channel_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':Channel_Id', $channel_id);
+    try{
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: ". $e->getMessage();
+        return false;
+    }
+}
