@@ -204,3 +204,4 @@ function getChannelMessage($channel_id){
         return false;
     }
 }
+function
