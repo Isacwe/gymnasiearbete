@@ -31,7 +31,7 @@
             <input type="password" id="password" name="password" required>
         </div>
 
-        <a href="" id="forgotPass">Forgot Password?</a>
+        <a href="signup.php" id="skapaKonto">Skapa konto</a>
 
         <button type="submit" name="submit" class="svampKnapp"></button>
     </form>

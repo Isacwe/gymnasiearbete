@@ -21,6 +21,7 @@
     <h2 class="signup-title" id="cloud-text">Signup</h2>
 
     <form method="POST" action="" class="form-group-signup" id="cloud-text">
+
         <div class="form-field">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -40,6 +41,8 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
+
+        <a href="login.php" id="loggaIn">Logga in</a>
 
         <button type="submit" name="submit" class="svampKnapp"></button>
     </form>

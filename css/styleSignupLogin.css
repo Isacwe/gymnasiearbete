@@ -575,16 +575,29 @@ input[type="text"], input[type="email"], input[type="password"] {
         0 0 12px rgba(255, 255, 255, 0.5);
 }
 
-#forgotPass {
+#skapaKonto {
     letter-spacing: 1px;
     text-decoration: underline dashed;
     color: rgb(113, 145, 189);
-    margin-left: 25px;
+    margin-left: 50px;
     transition: color 0.2s ease-in-out;
 }
 
-#forgotPass:hover {
-    color: rgb(209, 114, 114);
+#skapaKonto:hover {
+    color: rgb(42, 133, 175);
+}
+
+
+#loggaIn {
+    letter-spacing: 1px;
+    text-decoration: underline dashed;
+    color: rgb(113, 145, 189);
+    margin-left: 65px;
+    transition: color 0.2s ease-in-out;
+}
+
+#loggaIn:hover {
+   color: rgb(51, 145, 88);
 }
 
 #email {
