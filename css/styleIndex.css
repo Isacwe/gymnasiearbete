@@ -1,0 +1,198 @@
+body {
+    background-color: #bfcdda;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.blewit-title {
+    margin-top: auto;
+    margin-bottom: 55px;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 200px;
+    margin-right: 40vh;
+    margin-left: 40vh;
+    color: #f0f8ff;
+}
+
+.image-container {
+    position: relative;
+    width: 30%;
+    margin: -60px auto 0;
+    border-radius: 50%;
+}
+
+.blewit-image {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.blewit-title, .image-container, #transition {
+    position: relative;
+    z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .blewit-link:hover .blewit-image {
+        transform: scale(1.2);
+    }
+}
+
+.blewit-image.grow {
+    animation: growImage 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    position: relative;
+    z-index: 999;
+}
+
+@keyframes growImage {
+    0%   { transform: scale(1.2); }
+    1%   { transform: scale(1.24); }
+    2%   { transform: scale(1.28); }
+    3%   { transform: scale(1.32); }
+    4%   { transform: scale(1.36); }
+    5%   { transform: scale(1.4); }
+    6%   { transform: scale(1.45); }
+    7%   { transform: scale(1.5); }
+    8%   { transform: scale(1.55); }
+    9%   { transform: scale(1.6); }
+    10%  { transform: scale(1.65); }
+    11%  { transform: scale(1.72); }
+    12%  { transform: scale(1.79); }
+    13%  { transform: scale(1.86); }
+    14%  { transform: scale(1.93); }
+    15%  { transform: scale(2); }
+    16%  { transform: scale(2.1); }
+    17%  { transform: scale(2.2); }
+    18%  { transform: scale(2.3); }
+    19%  { transform: scale(2.4); }
+    20%  { transform: scale(2.5); }
+    21%  { transform: scale(2.65); }
+    22%  { transform: scale(2.8); }
+    23%  { transform: scale(2.95); }
+    24%  { transform: scale(3.1); }
+    25%  { transform: scale(3.25); }
+    26%  { transform: scale(3.4); }
+    27%  { transform: scale(3.55); }
+    28%  { transform: scale(3.7); }
+    29%  { transform: scale(3.85); }
+    30%  { transform: scale(4); }
+    31%  { transform: scale(4.2); }
+    32%  { transform: scale(4.4); }
+    33%  { transform: scale(4.6); }
+    34%  { transform: scale(4.8); }
+    35%  { transform: scale(5); }
+    36%  { transform: scale(5.25); }
+    37%  { transform: scale(5.5); }
+    38%  { transform: scale(5.75); }
+    39%  { transform: scale(6); }
+    40%  { transform: scale(6.25); }
+    41%  { transform: scale(6.55); }
+    42%  { transform: scale(6.85); }
+    43%  { transform: scale(7.15); }
+    44%  { transform: scale(7.45); }
+    45%  { transform: scale(7.75); }
+    46%  { transform: scale(8.1); }
+    47%  { transform: scale(8.45); }
+    48%  { transform: scale(8.8); }
+    49%  { transform: scale(9.15); }
+    50%  { transform: scale(9.5); }
+    51%  { transform: scale(9.9); }
+    52%  { transform: scale(10.3); }
+    53%  { transform: scale(10.7); }
+    54%  { transform: scale(11.1); }
+    55%  { transform: scale(11.5); }
+    56%  { transform: scale(11.95); }
+    57%  { transform: scale(12.4); }
+    58%  { transform: scale(12.85); }
+    59%  { transform: scale(13.3); }
+    60%  { transform: scale(13.75); }
+    61%  { transform: scale(14.3); }
+    62%  { transform: scale(14.85); }
+    63%  { transform: scale(15.4); }
+    64%  { transform: scale(15.95); }
+    65%  { transform: scale(16.5); }
+    66%  { transform: scale(17.1); }
+    67%  { transform: scale(17.7); }
+    68%  { transform: scale(18.3); }
+    69%  { transform: scale(18.9); }
+    70%  { transform: scale(19.5); }
+    71%  { transform: scale(20.2); }
+    72%  { transform: scale(20.9); }
+    73%  { transform: scale(21.6); }
+    74%  { transform: scale(22.3); }
+    75%  { transform: scale(23); }
+    76%  { transform: scale(23.8); }
+    77%  { transform: scale(24.6); }
+    78%  { transform: scale(25.4); }
+    79%  { transform: scale(26.2); }
+    80%  { transform: scale(27); }
+    81%  { transform: scale(27.9); }
+    82%  { transform: scale(28.8); }
+    83%  { transform: scale(29.7); }
+    84%  { transform: scale(30.6); }
+    85%  { transform: scale(31.5); }
+    86%  { transform: scale(32.3); }
+    87%  { transform: scale(33.1); }
+    88%  { transform: scale(33.9); }
+    89%  { transform: scale(34.7); }
+    90%  { transform: scale(35.5); }
+    91%  { transform: scale(36.1); }
+    92%  { transform: scale(36.7); }
+    93%  { transform: scale(37.3); }
+    94%  { transform: scale(37.9); }
+    95%  { transform: scale(38.5); }
+    96%  { transform: scale(38.9); }
+    97%  { transform: scale(39.2); }
+    98%  { transform: scale(39.5); }
+    99%  { transform: scale(39.8); }
+    100% { transform: scale(40); }
+}
+
+.video-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+#cloud-text {
+    font-family: 'Baloo 2', cursive;
+    letter-spacing: 6px;
+    color: #fffdf5;
+    text-shadow:
+        0 2px 3px rgba(100, 160, 200, 0.15),
+        0 4px 8px rgba(70, 130, 180, 0.2),
+        0 0 12px rgba(255, 255, 255, 0.5);
+    transform: rotate(-1deg);
+}
