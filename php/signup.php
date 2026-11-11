@@ -23,6 +23,7 @@ if(isset($_POST['submit'])){
             $_SESSION['email'] = $email;
             $_SESSION['createdAt'] = $createdAt;
             $_SESSION['userId'] = getUserId($username);
+            header('Location: chat.php');
         } else {
             echo "Error adding user";
             $error = true;

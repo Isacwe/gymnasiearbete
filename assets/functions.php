@@ -87,7 +87,7 @@ function login($username, $password) {
 }
 function getUserInfo($username) {
     global $blewIt;
-    $sql = "SELECT * FROM users WHERE username = :username";
+    $sql = "SELECT * FROM User WHERE username = :username";
     $stmt = $blewIt->prepare($sql);
     $stmt->bindParam(':username', $username);
     try {
@@ -204,4 +204,3 @@ function getChannelMessage($channel_id){
         return false;
     }
 }
-function

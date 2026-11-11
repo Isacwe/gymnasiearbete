@@ -2,16 +2,20 @@ const params = new URLSearchParams(window.location.search);
 const transition = document.querySelector("#page-transition");
 
 if (transition && params.get("transition") === "continue") {
-    transition.classList.add("play-reveal");
+  transition.classList.add("play-reveal");
 
-    transition.addEventListener("animationend", function (event) {
-        if (event.target !== transition) return;
-        const url = new URL(window.location.href);
-        url.searchParams.delete("transition");
-        window.history.replaceState({}, "", url);
-    }, { once: true });
+  transition.addEventListener(
+    "animationend",
+    function (event) {
+      if (event.target !== transition) return;
+      const url = new URL(window.location.href);
+      url.searchParams.delete("transition");
+      window.history.replaceState({}, "", url);
+    },
+    { once: true },
+  );
 }
-
+/*
 const loginForm = document.querySelector(".form-group-login");
 loginForm.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -30,4 +34,4 @@ loginForm.addEventListener("submit", function(event) {
         loginForm.classList.add("login-error");
         console.log("Incorrect username or password!");
     }
-});
+}); */

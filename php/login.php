@@ -7,10 +7,10 @@ if(isset($_POST['submit'])){
         if(login($username, $password)){
             echo "Login successful";
             $_SESSION['username'] = $username;
-            $_SESSION['displayname'] = getUser('displayname');
-            $_SESSION['email'] = getUser('email');
-            $_SESSION['createdAt'] = getUser('createdAt');
-            $_SESSION['userId'] = getUser('userId');
+            $_SESSION['displayname'] = getUserInfo('displayname');
+            $_SESSION['email'] = getUserInfo('email');
+            $_SESSION['createdAt'] = getUserInfo('createdAt');
+            $_SESSION['userId'] = getUserInfo('userId');
             header('Location: index.php');
         } else {
             echo "Invalid username or password";
