@@ -69,12 +69,13 @@ function getUserId($username) {
 }
 function login($username, $password) {
     global $blewIt;
-    $sql = "SELECT password FROM User WHERE username = :username";
+    $sql = "SELECT password FROM User WHERE Username = :username";
     $stmt = $blewIt->prepare($sql);
     $stmt->bindParam(':username', $username);
     try {
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
         if($result && password_verify($password, $result['password'])) {
             return true;
         } else {
