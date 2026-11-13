@@ -14,7 +14,7 @@
 
     <div class="video-background">
     <video autoplay muted loop playsinline>
-        <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
+        <source src="../files/Videor/snella.mp4" type="video/mp4">
     </video>
     </div>
 
@@ -24,27 +24,27 @@
 
         <div class="form-field">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" class="boxStyle-signup" required>
         </div>
 
         <div class="form-field">
             <label for="displayname">Display Name:</label>
-            <input type="text" id="displayname" name="displayname" required>
+            <input type="text" id="displayname" name="displayname" class="boxStyle-signup" required>
         </div>
 
         <div class="form-field">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="enter valid email" required >
+            <input type="email" id="email" name="email" placeholder="enter valid email" class="boxStyle-signup" required >
         </div>
 
         <div class="form-field">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" class="boxStyle-signup" required>
         </div>
 
-        <a href="login.php" id="loggaIn">Logga in</a>
+        <a href="login.php" id="loggaIn">Logga in istället</a>
 
-        <button type="submit" name="submit" class="svampKnapp"></button>
+        <button type="submit" name="submit" class="svampKnapp-signup"></button>
     </form>
 
     <script src="../Javascript/signupLogin.js"></script>
