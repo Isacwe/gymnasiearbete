@@ -142,7 +142,7 @@ function createRoom($roomName){
     $stmt->bindParam(':roomName', $roomName);
     try {
         $stmt->execute();
-        return true;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
         return false;
@@ -157,7 +157,7 @@ function getRoleId($roleName, $room_id) {
     $stmt->bindParam(':room_id', $room_id);
     try{
         $stmt->execute();
-        return true;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "Error: ". $e->getMessage();
         return false;
@@ -201,7 +201,33 @@ function getChannelMessage($channel_id){
     $stmt->bindParam(':Channel_Id', $channel_id);
     try{
         $stmt->execute();
-        return true;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: ". $e->getMessage();
+        return false;
+    }
+}
+function getDirectMessage($DM_Id){
+    global $blewIt;
+    $sql = "SELECT * FROM `Message` WHERE DM = :DM_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':DM_Id', $DM_Id);
+    try{
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: ". $e->getMessage();
+        return false;
+    }
+}
+function getUserRoom($user_Id){
+    global $blewIt;
+    $sql = "SELECT * FROM `Room_member` WHERE User_Id = :user_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':user_Id', $user_Id);
+    try{
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "Error: ". $e->getMessage();
         return false;
