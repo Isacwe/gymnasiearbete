@@ -14,7 +14,7 @@
 
     <div class="video-background">
     <video autoplay muted loop playsinline>
-        <source src="../files/Videor/snella.mp4" type="video/mp4">
+        <source src="../files/Videor/wallpaper2.mp4" type="video/mp4">
     </video>
     </div>
 
