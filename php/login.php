@@ -47,17 +47,17 @@ echo "</pre>";
     <form method="POST" action="" class="form-group-login" id="cloud-text">
         <div class="form-field">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" class="boxStyle-login" required>
         </div>
 
         <div class="form-field">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" class="boxStyle-login" required>
         </div>
 
         <a href="signup.php" id="skapaKonto">Skapa konto</a>
 
-        <button type="submit" name="submit" class="svampKnapp"></button>
+        <button type="submit" name="submit" class="svampKnapp-login"></button>
     </form>
 
     <script src="../Javascript/signupLogin.js"></script>

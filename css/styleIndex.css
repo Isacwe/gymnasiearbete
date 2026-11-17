@@ -364,7 +364,7 @@ body {
   100% {
     transform: scale(40);
   }
-}
+} /*Gjort med AI men föstår koden*/
 
 .video-background {
   position: fixed;
