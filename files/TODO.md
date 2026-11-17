@@ -19,4 +19,4 @@ Fixa filstruktur [x]
 
 
 ## Slutmål
-Allt är klart [ ]
+!Allt är klart [x]
