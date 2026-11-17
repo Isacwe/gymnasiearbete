@@ -233,3 +233,31 @@ function getUserRoom($user_Id){
         return false;
     }
 }
+function getChannel($Room_Id){
+    global $blewIt;
+    $sql = "SELECT `Channel_Id` FROM `Channel` WHERE Room_Id = :Room_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':Room_Id', $Room_Id);
+    try{
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_DEFAULT);
+    } catch (PDOException $e) {
+        echo "Error: ", $e->getMessage();
+        return false;
+    }
+}
+function addFriend($friend_Id) {
+    global $blewIt;
+    $sql = "INSERT INTO `Friends`(`User1_Id`, `User2_Id`) VALUES (:user_Id , :friend_Id)";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':user_Id', $_SESSION['userId']);
+    $stmt->bindParam(':friend_Id', $friend_Id);
+    try{
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error; ", $e->getMessage();
+        return false;
+    }
+}
+function
