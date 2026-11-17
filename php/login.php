@@ -1,3 +1,27 @@
+<?php
+session_start();
+require_once '../assets/functions.php';
+if(isset($_POST['submit'])){
+    if(($_POST['username'] != "") && ($_POST['password'] != "")){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        if(login($username, $password)){
+            $_SESSION['username'] = $username;
+            $userInfo = getUserInfo($username);
+            echo "<pre>";
+print_r($userInfo);
+echo "</pre>";
+            $_SESSION['displayname'] = $userInfo['displayname'];
+            $_SESSION['email'] = $userInfo['email'];
+            $_SESSION['createdAt'] = $userInfo['created_At'];
+            $_SESSION['userId'] = $userInfo['user_Id'];
+            header('Location: chat.php');
+        } else {
+            echo "Invalid username or password";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

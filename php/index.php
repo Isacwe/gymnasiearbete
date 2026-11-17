@@ -18,7 +18,7 @@
 
     <h1 class="blewit-title" id="cloud-text">BlewIt</h1>
     <div class="image-container">
-        <a href="signup.php" class="blewit-link">
+        <a href="chat.php" class="blewit-link">
             <img src="../files/Bilder/fixadbildavBlewIt.png" class="blewit-image">
         </a>
     </div>
