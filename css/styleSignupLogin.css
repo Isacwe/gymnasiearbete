@@ -135,22 +135,6 @@ body {
     gap: 1px;
 }
 
-/*.svampKnapp {
-    background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) no-repeat;
-    background-size: 50px 50px;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    border: none;
-    width: 50px;
-    height: 50px;
-    align-items: center;
-    background-position: center;
-
-    border-radius: 50%;
-    transition: transform 0.09s ease-in-out;
-}*/
-
 .svampKnapp-login {
     background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) no-repeat;
     background-size: 50px 50px;
