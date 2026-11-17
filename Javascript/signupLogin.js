@@ -15,23 +15,3 @@ if (transition && params.get("transition") === "continue") {
     { once: true },
   );
 }
-
-const loginForm = document.querySelector(".form-group-login");
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const username = document.querySelector("#username").value;
-  const password = document.querySelector("#password").value;
-  const correctUsername = "admin";
-  const correctPassword = "1234";
-
-  if (username === correctUsername && password === correctPassword) {
-    const destination = new URL("chat.php", window.location.href);
-    loginForm.classList.remove("login-error");
-    console.log("Login successful!");
-    window.location.href = destination.href;
-  } else {
-    loginForm.classList.add("login-error");
-    console.log("Incorrect username or password!");
-  }
-});
