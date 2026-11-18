@@ -1,4 +1,4 @@
-.boxStyle-darkMode {
+.boxStyle-DarkMode {
     max-width: 200px;
     height: 30px;
     font-size: 15px;
@@ -9,7 +9,7 @@
     background-color: #1f618a;
 }
 
-.form-group-darkMode {
+.form-group-DarkMode {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -31,14 +31,14 @@
         0 0 25px rgba(65, 105, 225, 0.3),
         inset 0 0 15px rgba(135, 206, 235, 0.1);
 
-    backdrop-filter: blur(3x);
+    backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
 
     transition: box-shadow 0.3s ease;
     text-decoration: underline dotted;
 }
 
-.form-group-darkMode:hover {
+.form-group-DarkMode:hover {
     box-shadow:
         0 0 15px rgba(0, 198, 255, 0.7),
         0 0 35px rgba(65, 105, 225, 0.5),
@@ -46,7 +46,7 @@
 }
 
 .svampKnapp-DarkMode {
-    background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) no-repeat;
+    background: url(../files/Bilder/BlewItLogoDarkMode.png) no-repeat;
     background-size: 50px 50px;
     display: block;
     margin: 0 auto;

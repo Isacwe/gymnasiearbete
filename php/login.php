@@ -28,6 +28,8 @@ echo "</pre>";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleSignupLogin.css">
+    <link rel="stylesheet" href="../css/styleDarkMode.css">
+    <link rel="stylesheet" href="../css/styleLightMode.css">
     <title>Login</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet">
@@ -37,8 +39,8 @@ echo "</pre>";
     <div id="page-transition"></div>
 
     <div class="video-background">
-    <video autoplay muted loop playsinline>
-        <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
+    <video id="background-video" autoplay muted loop playsinline>
+    <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
     </video>
     </div>
 
@@ -60,6 +62,9 @@ echo "</pre>";
         <button type="submit" name="submit" class="svampKnapp-login"></button>
     </form>
 
+    <button name="themes" class="svampKnapp-themes" id="themes"></button>
+
+    <script src="../Javascript/themes.js" defer></script>
     <script src="../Javascript/signupLogin.js"></script>
 </body>
 </html>

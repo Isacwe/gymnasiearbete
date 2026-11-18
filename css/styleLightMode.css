@@ -45,15 +45,8 @@
     inset 0 0 20px rgba(144, 238, 144, 0.15);
 }
 
-.form-group-LightMode.LightMode-error:hover {
-    box-shadow:
-        0 0 15px rgba(255, 50, 50, 0.7),
-        0 0 35px rgba(200, 0, 0, 0.5),
-        inset 0 0 20px rgba(255, 100, 100, 0.15);
-}
-
 .svampKnapp-LightMode {
-    background: url(../files/Bilder/BlewItLogoDarkMode.png) no-repeat;
+    background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) no-repeat;
     background-size: 50px 50px;
     display: block;
     margin: 0 auto;
