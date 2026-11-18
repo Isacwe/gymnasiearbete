@@ -137,7 +137,7 @@ function getDmList($userId) {
 }
 function createRoom($roomName){
     global $blewIt;
-    $sql = "INSERT INTO `Room`(`Name`) VALUES (':roomName')";
+    $sql = "INSERT INTO `Room`(`Name`) VALUES (:roomName)";
     $stmt = $blewIt->prepare($sql);
     $stmt->bindParam(':roomName', $roomName);
     try {
@@ -260,4 +260,3 @@ function addFriend($friend_Id) {
         return false;
     }
 }
-function

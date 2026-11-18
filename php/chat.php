@@ -1,14 +1,20 @@
 <?php
 require_once '../assets/functions.php';
+require_once '../assets/sessioncheck.php';
 
-$id = 1;
-
-if (isset($_POST['submit'])) {
-    $rooms = getUserRoom($id);
+if (isset($_POST['testGetUserRoom'])) {
+    $rooms = getUserRoom($_SESSION['userId']);
 
     echo "<pre>";
     print_r($rooms);
-    echo "</pre>";
+    echo "</pre>";  
+}
+if (isset($_POST['createRoom'])){
+    $roomName = $_POST['roomName'];
+    $createRoom = createRoom($roomName);
+}
+if(isset($_POST['addRoomUser'])) {
+    
 }
 ?>
 <!DOCTYPE html>
@@ -21,7 +27,13 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <form method="POST">
-        <button type="submit" name="submit">Testa getUserRoom</button>
+        <button type="submit" name="testGetUserRoom">Testa getUserRoom</button>
+        <br>
+        <button type="submit" name="createRoom">Skapa Rum</button>
+        <input type="text" name="roomName" placeholder="Namn på rummet">
+        <br>
+        <button type="submit" name="addRoomUser">Lägg till användare i rum</button>
+        <input type="text" name="addRoomUser" placeholder="Användar Id för den som ska läggas till">
     </form>
 </body>
 </html>
