@@ -49,37 +49,36 @@ if(isset($_POST['submit'])){
 
     <div class="video-background">
     <video id="background-video" autoplay muted loop playsinline>
-    <source src="../files/Videor/wallpaper2.mp4" type="video/mp4">
+    <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
     </video>
     </div>
 
     <h2 class="signup-title" id="cloud-text">Signup</h2>
 
-    <form method="POST" action="" class="form-group-signup" id="cloud-text">
-
+    <form method="POST" action="" class="form-group-login" id="cloud-text">
         <div class="form-field">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" class="boxStyle-signup" required>
+            <input type="text" id="username" name="username" class="boxStyle-login" required>
         </div>
 
         <div class="form-field">
             <label for="displayname">Display Name:</label>
-            <input type="text" id="displayname" name="displayname" class="boxStyle-signup" required>
+            <input type="text" id="displayname" name="displayname" class="boxStyle-login" required>
         </div>
 
         <div class="form-field">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="enter valid email" class="boxStyle-signup" required >
+            <input type="email" id="email" name="email" placeholder="enter valid email" class="boxStyle-login" required>
         </div>
 
         <div class="form-field">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" class="boxStyle-signup" required>
+            <input type="password" id="password" name="password" class="boxStyle-login" required>
         </div>
 
         <a href="login.php" id="loggaIn">Logga in istället</a>
 
-        <button type="submit" name="submit" class="svampKnapp-signup"></button>
+        <button type="submit" name="submit" class="svampKnapp-login"></button>
     </form>
 
     <button name="themes" class="svampKnapp-themes" id="themes"></button>

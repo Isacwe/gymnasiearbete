@@ -1,53 +1,60 @@
+//Tar alla html-element som krävs för att byta färg på själva sidan. Dessutom tar den själva klasserna som behöver ändras till redan existerande klasser, som dark / light mode. 
 const themeBtn = document.getElementById("themes");
 const video = document.getElementById("background-video");
-
-const form = document.querySelector(".form-group-signup, .form-group-login, .form-group-DarkMode, .form-group-LightMode");
-const inputs = document.querySelectorAll(".boxStyle-signup, .boxStyle-login, .boxStyle-DarkMode, .boxStyle-LightMode");
-const submitBtn = document.querySelector(".svampKnapp-signup, .svampKnapp-login, .svampKnapp-DarkMode, .svampKnapp-LightMode");
+const form = document.querySelector("[class*='form-group-']");
+const inputs = document.querySelectorAll("[class*='boxStyle-']");
+const submitBtn = document.querySelector("[class*='svampKnapp-']");
 const accountLink = document.querySelector("#loggaIn, #skapaKonto, #loggaInDarkMode, #skapaKontoLightMode");
 
+//En hjälp-funktion för ändringen av tema som tar bort gambla temaklasser, där den classList.add lägger till rätt klass, alltså light eller dark mode på alla elementen om det finns på sidan.
+function setThemeClass(element, baseName, isDark) {
+    if (!element) return;
+    element.classList.remove(
+        `${baseName}-signup`,
+        `${baseName}-login`,
+        `${baseName}-DarkMode`,
+        `${baseName}-LightMode`
+    );
+    element.classList.add(isDark ? `${baseName}-DarkMode` : `${baseName}-LightMode`);
+}
+
+//Detta är själva huvudfunktionen av sidan, som heter applyTheme. Denna funktion ger själva sidan sitt tema. 
 function applyTheme(isDark) {
-    document.body.classList.toggle("dark-theme", isDark);
-    document.body.classList.toggle("light-theme", !isDark);
 
-    if (form) {
-        form.classList.remove("form-group-signup", "form-group-login", "form-group-DarkMode", "form-group-LightMode");
-        form.classList.add(isDark ? "form-group-DarkMode" : "form-group-LightMode");
+    //Detta uppdaterar klassen på body där den byter klasserna som har teman på själva formulären, knapparna och imatningsfälten. Om det är dark, blir det darktheme, och annars lighttheme. 
+    document.body.className = isDark ? "dark-theme" : "light-theme";
+
+    setThemeClass(form, "form-group", isDark);
+    setThemeClass(submitBtn, "svampKnapp", isDark);
+    inputs.forEach(input => setThemeClass(input, "boxStyle", isDark));
+
+    //Detta byter id på länken, vilket gör så att textfärgen endras enligt css-koden för det passande temat, då det är antingen loggaIn eller skapaKonto.
+    if (accountLink) {
+        accountLink.id = isDark ? "loggaInDarkMode" : "skapaKontoLightMode";
     }
 
-    inputs.forEach(input => {
-        input.classList.remove("boxStyle-signup", "boxStyle-login", "boxStyle-DarkMode", "boxStyle-LightMode");
-        input.classList.add(isDark ? "boxStyle-DarkMode" : "boxStyle-LightMode");
-    });
-
-    if (submitBtn) {
-        submitBtn.classList.remove("svampKnapp-signup", "svampKnapp-login", "svampKnapp-DarkMode", "svampKnapp-LightMode");
-        submitBtn.classList.add(isDark ? "svampKnapp-DarkMode" : "svampKnapp-LightMode");
-    }
-
-    if (accountLink) {accountLink.id = isDark ? "loggaInDarkMode" : "skapaKontoLightMode";}
-
+    //Denna del kontrollerar om det finns en bakgrundsvideo på sidan, vilket båda har som jag vill ändra på. Den väljer vilken video som ska video.load och video.play, beroende på temat (isDark.)
     if (video) {
         const source = video.querySelector("source");
-        const targetVideo = isDark? "../files/Videor/wallpaper2.mp4": "../files/Videor/wallpaper3.mp4";
+        const videoFile = isDark ? "wallpaper2.mp4" : "wallpaper3.mp4";
 
-        if (!source.src.endsWith(targetVideo.replace("..", ""))) {
-            source.src = targetVideo;
+        if (!source.src.includes(videoFile)) {
+            source.src = `../files/Videor/${videoFile}`;
             video.load();
-            video.play().catch(error => {
-                console.log("Video playback failed:", error);
-            });
+            video.play().catch(() => {});
         }
     }
 }
 
-let isDarkTheme = localStorage.getItem("theme") !== "light";
-applyTheme(isDarkTheme);
+//Denna del av koden lagrar i localStorage, alltså webbläsarens minne, denna del beror på vilket tema som användaren angav och aktiverar det när sidan laddas. 
+let isDark = localStorage.getItem("theme") !== "light";
+applyTheme(isDark);
 
+//Här lyssnar det efter själva klicket för att temat ska kunna ändras. 
 if (themeBtn) {
     themeBtn.addEventListener("click", () => {
-        isDarkTheme = !isDarkTheme;
-        localStorage.setItem("theme", isDarkTheme ? "dark" : "light");
-        applyTheme(isDarkTheme);
+        isDark = !isDark;
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        applyTheme(isDark);
     });
 }
