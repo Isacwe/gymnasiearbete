@@ -1,16 +1,16 @@
 <?php
 session_start();
 require_once '../assets/functions.php';
-if(isset($_POST['submit'])){
-    if(($_POST['username'] != "") && ($_POST['password'] != "")){
+if (isset($_POST['submit'])) {
+    if (($_POST['username'] != "") && ($_POST['password'] != "")) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        if(login($username, $password)){
+        if (login($username, $password)) {
             $_SESSION['username'] = $username;
             $userInfo = getUserInfo($username);
             echo "<pre>";
-print_r($userInfo);
-echo "</pre>";
+            print_r($userInfo);
+            echo "</pre>";
             $_SESSION['displayname'] = $userInfo['displayname'];
             $_SESSION['email'] = $userInfo['email'];
             $_SESSION['createdAt'] = $userInfo['created_At'];
@@ -24,6 +24,7 @@ echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +38,9 @@ echo "</pre>";
     <div id="page-transition"></div>
 
     <div class="video-background">
-    <video autoplay muted loop playsinline>
-        <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
-    </video>
+        <video autoplay muted loop playsinline>
+            <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
+        </video>
     </div>
 
     <h2 class="signup-title" id="cloud-text">Login</h2>
@@ -62,4 +63,5 @@ echo "</pre>";
 
     <script src="../Javascript/signupLogin.js"></script>
 </body>
+
 </html>

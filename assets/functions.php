@@ -2,10 +2,13 @@
 
 require_once 'db.php';
 
-function hashPass($password) {
+function hashPass($password)
+{
     return password_hash($password, PASSWORD_DEFAULT);
 }
-function addUser($login) {
+
+function addUser($login)
+{
     echo "AddUser";
     global $blewIt;
     $sql = "INSERT INTO User (username, displayname, password, email) VALUES (:username, :displayname, :password, :email)";
@@ -23,37 +26,29 @@ function addUser($login) {
         return false;
     }
 }
-function sendDirectMessage($sender_Id, $content, $dmId){
+
+function login($username, $password)
+{
     global $blewIt;
-    $sql = "INSERT INTO Message (Sender_Id, Content, DM_Id) VALUES (:sender, :content, :dmId)";
+    $sql = "SELECT password FROM User WHERE Username = :username";
     $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':sender', $sender_Id);
-    $stmt->bindParam(':content', $content);
-    $stmt->bindParam(':dmId', $dmId);
+    $stmt->bindParam(':username', $username);
     try {
         $stmt->execute();
-        return true;
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result && password_verify($password, $result['password'])) {
+            return true;
+        } else {
+            return false;
+        }
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
         return false;
     }
 }
-function sendChannelMessage($sender_Id, $content, $channelId){
-    global $blewIt;
-    $sql = "INSERT INTO Message (Sender_Id, Content, Channel_Id) VALUES (:sender, :content, :channel_Id)";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':sender', $sender_Id);
-    $stmt->bindParam(':content', $content);
-    $stmt->bindParam(':channel_Id', $channelId);
-    try {
-        $stmt->execute();
-        return true;
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-        return false;
-    }
-}
-function getUserId($username) {
+
+function getUserId($username)
+{
     global $blewIt;
     $sql = "SELECT user_Id FROM User WHERE username = :username";
     $stmt = $blewIt->prepare($sql);
@@ -67,25 +62,9 @@ function getUserId($username) {
         return false;
     }
 }
-function login($username, $password) {
-    global $blewIt;
-    $sql = "SELECT password FROM User WHERE Username = :username";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':username', $username);
-    try {
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($result && password_verify($password, $result['password'])) {
-            return true;
-        } else {
-            return false;
-        }
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-        return false;
-    }
-}
-function getUserInfo($username) {
+
+function getUserInfo($username)
+{
     global $blewIt;
     $sql = "SELECT * FROM User WHERE username = :username";
     $stmt = $blewIt->prepare($sql);
@@ -98,9 +77,27 @@ function getUserInfo($username) {
         return false;
     }
 }
-function createDM($userId, $userName) {
+
+function addFriend($friend_Id)
+{
+    global $blewIt;
+    $sql = "INSERT INTO `Friends`(`User1_Id`, `User2_Id`) VALUES (:user_Id , :friend_Id)";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':user_Id', $_SESSION['userId']);
+    $stmt->bindParam(':friend_Id', $friend_Id);
+    try {
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: ", $e->getMessage();
+        return false;
+    }
+}
+
+function createDM($userId, $userName)
+{
     $user2 = getUserId($userName);
-    if($user2){
+    if ($user2) {
         global $blewIt;
         $sql = "INSERT INTO Direct_Message () VALUES ()";
         $stmt = $blewIt->prepare($sql);
@@ -122,7 +119,8 @@ function createDM($userId, $userName) {
     }
 }
 
-function getDmList($userId) {
+function getDmList($userId)
+{
     global $blewIt;
     $sql = "SELECT DM_Id FROM Direct_Message_member WHERE User_Id = :userId";
     $stmt = $blewIt->prepare($sql);
@@ -135,7 +133,41 @@ function getDmList($userId) {
         return false;
     }
 }
-function createRoom($roomName){
+
+function sendDirectMessage($sender_Id, $content, $dmId)
+{
+    global $blewIt;
+    $sql = "INSERT INTO Message (Sender_Id, Content, DM_Id) VALUES (:sender, :content, :dmId)";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':sender', $sender_Id);
+    $stmt->bindParam(':content', $content);
+    $stmt->bindParam(':dmId', $dmId);
+    try {
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function getDirectMessage($DM_Id)
+{
+    global $blewIt;
+    $sql = "SELECT * FROM `Message` WHERE DM = :DM_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':DM_Id', $DM_Id);
+    try {
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function createRoom($roomName)
+{
     global $blewIt;
     $sql = "INSERT INTO `Room`(`Name`) VALUES (:roomName)";
     $stmt = $blewIt->prepare($sql);
@@ -149,96 +181,13 @@ function createRoom($roomName){
     }
 }
 
-function getRoleId($roleName, $room_id) {
+function getRoomName($room_Id)
+{
     global $blewIt;
-    $sql = "SELECT Role_Id FROM Role WHERE Name = :roleName AND Room_Id = :room_id";
+    $sql = "SELECT `Name` FROM `Room` WHERE `Room_Id` = :room_Id";
     $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':roleName', $roleName);
-    $stmt->bindParam(':room_id', $room_id);
-    try{
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Error: ". $e->getMessage();
-        return false;
-    }
-}
-function addRoomUser($roomName, $user, $role){
-    global $blewIt;
-    $userId = getUserId($user);
-    $roleId = getRoleId($role, $roomName);
-    $sql = "INSERT INTO Room_member (Room_Id, User_Id, Role_Id) VALUES (:room_id, :user_id, :role_id)";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':Room_id', $room_id);
-    $stmt->bindParam(':user_id', $userId);
-    $stmt->bindParam(':role_id', $roleId);
-    try{
-        $stmt->execute();
-        return true;
-    } catch (PDOException $e) {
-        echo "Error: ". $e->getMessage();
-        return false;
-    }
-}
-function createChannel($channelName, $room_id) {
-    global $blewIt;
-    $sql = "INSERT INTO Channel (`Room_Id`, `Name`) VALUES (:room_id, :channel_name)";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':room_id', $room_id);
-    $stmt->bindParam(':channel_name', $channelName);
-    try{
-        $stmt->execute();
-        return true;
-    } catch (PDOException $e) {
-        echo "Error: ". $e->getMessage();
-        return false;
-    }
-}
-function getChannelMessage($channel_id){
-    global $blewIt;
-    $sql = "SELECT * FROM `Message` WHERE Channel_Id = :Channel_Id";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':Channel_Id', $channel_id);
-    try{
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Error: ". $e->getMessage();
-        return false;
-    }
-}
-function getDirectMessage($DM_Id){
-    global $blewIt;
-    $sql = "SELECT * FROM `Message` WHERE DM = :DM_Id";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':DM_Id', $DM_Id);
-    try{
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Error: ". $e->getMessage();
-        return false;
-    }
-}
-function getUserRoom($user_Id){
-    global $blewIt;
-    $sql = "SELECT * FROM `Room_member` WHERE User_Id = :user_Id";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':user_Id', $user_Id);
-    try{
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Error: ". $e->getMessage();
-        return false;
-    }
-}
-function getChannel($Room_Id){
-    global $blewIt;
-    $sql = "SELECT `Channel_Id` FROM `Channel` WHERE Room_Id = :Room_Id";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':Room_Id', $Room_Id);
-    try{
+    $stmt->bindParam(':room_Id', $room_Id);
+    try {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_DEFAULT);
     } catch (PDOException $e) {
@@ -246,17 +195,120 @@ function getChannel($Room_Id){
         return false;
     }
 }
-function addFriend($friend_Id) {
+
+function addRoomUser($room_id, $userId, $role)
+{
     global $blewIt;
-    $sql = "INSERT INTO `Friends`(`User1_Id`, `User2_Id`) VALUES (:user_Id , :friend_Id)";
-    $stmt = $blewIt->prepare($sql);
-    $stmt->bindParam(':user_Id', $_SESSION['userId']);
-    $stmt->bindParam(':friend_Id', $friend_Id);
-    try{
+    if ($role != null) {
+        $roleId = getRoleId($role, $room_id);
+        $sql = "INSERT INTO Room_member (Room_Id, User_Id, Role_Id) VALUES (:room_id, :user_id, :role_id)";
+        $stmt = $blewIt->prepare($sql);
+        $stmt->bindParam(':role_id', $roleId);
+    } else {
+        $sql = "INSERT INTO Room_member (Room_Id, User_Id) VALUES (:room_id, :user_id)";
+        $stmt = $blewIt->prepare($sql);
+    }
+    $stmt->bindParam(':room_id', $room_id);
+    $stmt->bindParam(':user_id', $userId);
+    try {
         $stmt->execute();
         return true;
     } catch (PDOException $e) {
-        echo "Error; ", $e->getMessage();
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function getUserRoom($user_Id)
+{
+    global $blewIt;
+    $sql = "SELECT * FROM `Room_member` WHERE User_Id = :user_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':user_Id', $user_Id);
+    try {
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function getRoleId($roleName, $room_id)
+{
+    global $blewIt;
+    $sql = "SELECT Role_Id FROM Role WHERE Name = :roleName AND Room_Id = :room_id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':roleName', $roleName);
+    $stmt->bindParam(':room_id', $room_id);
+    try {
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function createChannel($channelName, $room_id)
+{
+    global $blewIt;
+    $sql = "INSERT INTO Channel (`Room_Id`, `Name`) VALUES (:room_id, :channel_name)";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':room_id', $room_id);
+    $stmt->bindParam(':channel_name', $channelName);
+    try {
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function getChannel($Room_Id)
+{
+    global $blewIt;
+    $sql = "SELECT `Channel_Id` FROM `Channel` WHERE Room_Id = :Room_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':Room_Id', $Room_Id);
+    try {
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_DEFAULT);
+    } catch (PDOException $e) {
+        echo "Error: ", $e->getMessage();
+        return false;
+    }
+}
+
+function sendChannelMessage($sender_Id, $content, $channelId)
+{
+    global $blewIt;
+    $sql = "INSERT INTO Message (Sender_Id, Content, Channel_Id) VALUES (:sender, :content, :channel_Id)";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':sender', $sender_Id);
+    $stmt->bindParam(':content', $content);
+    $stmt->bindParam(':channel_Id', $channelId);
+    try {
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function getChannelMessage($channel_id)
+{
+    global $blewIt;
+    $sql = "SELECT * FROM `Message` WHERE Channel_Id = :Channel_Id";
+    $stmt = $blewIt->prepare($sql);
+    $stmt->bindParam(':Channel_Id', $channel_id);
+    try {
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
         return false;
     }
 }

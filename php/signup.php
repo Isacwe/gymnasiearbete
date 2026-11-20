@@ -2,12 +2,12 @@
 require_once '../assets/functions.php';
 session_start();
 $error = false;
-if(isset($_POST['submit'])){
-    if(($_POST['username'] != "") || ($_POST['displayname'] != "") || ($_POST['password'] != "") || ($_POST['email'] != "")){
+if (isset($_POST['submit'])) {
+    if (($_POST['username'] != "") || ($_POST['displayname'] != "") || ($_POST['password'] != "") || ($_POST['email'] != "")) {
         $username = $_POST['username'];
         $displayname = $_POST['displayname'];
         $password = hashPass($_POST['password']);
-        if(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)){
+        if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
             echo "Valid email format";
             $email = $_POST['email'];
         } else {
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
         }
         $createdAt = date('Y-m-d H:i:s');
         $login = ["username" => $username, "displayname" => $displayname, "password" => $password, "email" => $email, "createdAt" => $createdAt];
-        if(addUser($login)){
+        if (addUser($login)) {
             echo "User added successfully";
             $_SESSION['username'] = $username;
             $_SESSION['displayname'] = $displayname;
@@ -27,12 +27,13 @@ if(isset($_POST['submit'])){
         } else {
             echo "Error adding user";
             $error = true;
+        }
     }
-}
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,9 +47,9 @@ if(isset($_POST['submit'])){
     <div id="page-transition"></div>
 
     <div class="video-background">
-    <video autoplay muted loop playsinline>
-        <source src="../files/Videor/wallpaper2.mp4" type="video/mp4">
-    </video>
+        <video autoplay muted loop playsinline>
+            <source src="../files/Videor/wallpaper2.mp4" type="video/mp4">
+        </video>
     </div>
 
     <h2 class="signup-title" id="cloud-text">Signup</h2>
@@ -67,7 +68,7 @@ if(isset($_POST['submit'])){
 
         <div class="form-field">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="enter valid email" class="boxStyle-signup" required >
+            <input type="email" id="email" name="email" placeholder="enter valid email" class="boxStyle-signup" required>
         </div>
 
         <div class="form-field">
@@ -82,4 +83,5 @@ if(isset($_POST['submit'])){
 
     <script src="../Javascript/signupLogin.js"></script>
 </body>
+
 </html>
