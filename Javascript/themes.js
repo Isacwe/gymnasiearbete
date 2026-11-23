@@ -22,6 +22,7 @@ function setThemeClass(element, baseName, isDark) {
 function applyTheme(isDark) {
 
     //Detta uppdaterar klassen på body där den byter klasserna som har teman på själva formulären, knapparna och imatningsfälten. Om det är dark, blir det darktheme, och annars lighttheme. 
+    document.documentElement.className = isDark ? "dark-theme" : "light-theme";
     document.body.className = isDark ? "dark-theme" : "light-theme";
 
     setThemeClass(form, "form-group", isDark);

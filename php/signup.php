@@ -40,8 +40,16 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="../css/styleDarkMode.css">
     <link rel="stylesheet" href="../css/styleLightMode.css">
     <title>Signup</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&display=swap" rel="stylesheet">
+
+    <script>
+    if (localStorage.getItem("theme") !== "light") {
+        document.documentElement.classList.add("dark-theme");
+    } else {
+        document.documentElement.classList.add("light-theme");
+    }
+    </script>
+
 </head>
 
 <body>
@@ -49,13 +57,14 @@ if(isset($_POST['submit'])){
 
     <div class="video-background">
     <video id="background-video" autoplay muted loop playsinline>
-    <source src="../files/Videor/wallpaper3.mp4" type="video/mp4">
+    <source src="" type="video/mp4">
     </video>
     </div>
 
     <h2 class="signup-title" id="cloud-text">Signup</h2>
 
     <form method="POST" action="" class="form-group-login" id="cloud-text">
+
         <div class="form-field">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" class="boxStyle-login" required>

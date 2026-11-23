@@ -79,7 +79,8 @@ body {
     text-decoration: underline dotted;
 }
 
-.form-group-signup {
+.form-group-signup,
+html.dark-theme .form-group-login {
     background: rgba(10, 20, 45, 0.75);
     box-shadow:
         0 0 10px rgba(0, 198, 255, 0.5),
@@ -87,7 +88,8 @@ body {
         inset 0 0 15px rgba(135, 206, 235, 0.1);
 }
 
-.form-group-signup:hover {
+.form-group-signup:hover,
+html.dark-theme .form-group-login:hover {
     box-shadow:
         0 0 15px rgba(0, 198, 255, 0.7),
         0 0 35px rgba(65, 105, 225, 0.5),
@@ -125,7 +127,8 @@ body {
     border-radius: 5px;
 }
 
-.boxStyle-signup {
+.boxStyle-signup,
+html.dark-theme .boxStyle-login {
     color: rgb(236, 220, 220);
     background-color: #1f618a;
 }
@@ -175,7 +178,8 @@ body {
     background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) center / 50px 50px no-repeat;
 }
 
-.svampKnapp-signup {
+.svampKnapp-signup,
+html.dark-theme .svampKnapp-login {
     background: url(../files/Bilder/BlewItLogoDarkMode.png) center / 50px 50px no-repeat;
 }
 
@@ -211,11 +215,178 @@ body {
     color: rgb(42, 133, 175);
 }
 
-#loggaIn {
+#loggaIn,
+html.dark-theme #skapaKonto {
     color: rgb(247, 245, 245);
 }
 
-#loggaIn:hover {
+#loggaIn:hover,
+html.dark-theme #skapaKonto:hover {
     color: rgb(51, 145, 88);
 }
 
+.boxStyle-DarkMode {
+    max-width: 200px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: rgb(236, 220, 220);
+    background-color: #1f618a;
+}
+
+.form-group-DarkMode {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    width: fit-content;
+    margin: 0 auto;
+    padding: 25px;
+
+    position: relative;
+    border-radius: 20px;
+
+    background: rgba(10, 20, 45, 0.75);
+
+    border: 3px solid rgba(0, 198, 255, 0.4);
+
+    box-shadow:
+        0 0 10px rgba(0, 198, 255, 0.5),
+        0 0 25px rgba(65, 105, 225, 0.3),
+        inset 0 0 15px rgba(135, 206, 235, 0.1);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    transition: box-shadow 0.3s ease;
+    text-decoration: underline dotted;
+}
+
+.form-group-DarkMode:hover {
+    box-shadow:
+        0 0 15px rgba(0, 198, 255, 0.7),
+        0 0 35px rgba(65, 105, 225, 0.5),
+        inset 0 0 20px rgba(135, 206, 235, 0.15);
+}
+
+.svampKnapp-DarkMode {
+    background: url(../files/Bilder/BlewItLogoDarkMode.png) no-repeat;
+    background-size: 50px 50px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border: none;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    background-position: center;
+
+    border-radius: 50%;
+    transition: transform 0.09s ease-in-out;
+}
+
+.svampKnapp-DarkMode:hover {
+    border-radius: 50%;
+    background-size: 50px 50px; 
+    transform: scale(1.1);
+}
+
+#loggaInDarkMode {
+    letter-spacing: 1px;
+    text-decoration: underline dashed;
+    color: rgb(247, 245, 245);
+    margin-left: 0;
+    align-self: center;
+    text-align: center;
+    transition: color 0.2s ease-in-out;
+}
+
+#loggaInDarkMode:hover {
+   color: rgb(51, 145, 88);
+}
+
+.boxStyle-LightMode {
+    max-width: 200px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: rgb(2, 2, 2);
+    background-color: #ddffef;
+}
+
+.form-group-LightMode {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    width: fit-content;
+    margin: 0 auto;
+    padding: 25px;
+
+    position: relative;
+    border-radius: 20px;
+
+    background: rgba(135, 206, 250, 0.45);
+
+    border: 3px solid rgba(0, 198, 255, 0.4);
+
+    box-shadow:
+        0 0 10px rgba(0, 198, 255, 0.5),
+        0 0 25px rgba(65, 105, 225, 0.3),
+        inset 0 0 15px rgba(135, 206, 235, 0.2);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
+    transition: box-shadow 0.3s ease;
+    text-decoration: underline dotted;
+}
+
+.form-group-LightMode:hover {
+    box-shadow:
+    0 0 15px rgba(0, 255, 100, 0.7),
+    0 0 35px rgba(0, 200, 80, 0.5),
+    inset 0 0 20px rgba(144, 238, 144, 0.15);
+}
+
+.svampKnapp-LightMode {
+    background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) no-repeat;
+    background-size: 50px 50px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border: none;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    background-position: center;
+
+    border-radius: 50%;
+    transition: transform 0.09s ease-in-out;
+}
+
+.svampKnapp-LightMode:hover {
+    border-radius: 50%;
+    background-size: 50px 50px; 
+    transform: scale(1.1);
+}
+
+#skapaKontoLightMode {
+    letter-spacing: 1px;
+    text-decoration: underline dashed;
+    color: #050505;
+    margin-left: 0;
+    align-self: center;
+    text-align: center;
+    transition: color 0.2s ease-in-out;
+}
+
+#skapaKontoLightMode:hover {
+    color: rgb(42, 133, 175);
+}
