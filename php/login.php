@@ -15,7 +15,7 @@ echo "</pre>";
             $_SESSION['email'] = $userInfo['email'];
             $_SESSION['createdAt'] = $userInfo['created_At'];
             $_SESSION['userId'] = $userInfo['user_Id'];
-            header('Location: chatmall.php');
+            header('Location: chatten.php');
         } else {
             echo "Invalid username or password";
         }

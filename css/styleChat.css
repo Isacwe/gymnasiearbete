@@ -1,0 +1,36 @@
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: url(../files/Bilder/blewitDarkmodeInverted.png) no-repeat center / cover;
+  flex-shrink: 0;    
+  cursor: pointer;
+  border: none;
+}
+
+.message-text {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: 'Baloo 2', cursive;
+  color: rgb(172, 81, 81);
+  font-size: medium;
+}
+
+.cloud-text {
+  font-family: 'Baloo 2', cursive;
+  font-size: large;
+  letter-spacing: 1px;
+  color: #030303;
+  text-shadow:
+        0 2px 3px rgba(100, 160, 200, 0.15),
+        0 4px 8px rgba(70, 130, 180, 0.2),
+        0 0 12px rgba(255, 255, 255, 0.5);
+}
