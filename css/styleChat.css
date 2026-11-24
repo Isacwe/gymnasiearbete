@@ -59,7 +59,10 @@ body {
 #text-input {
   width: 600px;
   height: 70px;
+  min-height: 45px;  
+  max-height: 200px;
   box-sizing: border-box;
+  resize: vertical;
 }
 
 #submit {
