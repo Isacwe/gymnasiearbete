@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['email'] = $userInfo['email'];
             $_SESSION['createdAt'] = $userInfo['created_At'];
             $_SESSION['userId'] = $userInfo['user_Id'];
-            header('Location: chat.php');
+            header('Location: testsite.php');
         } else {
             echo "Invalid username or password";
         }

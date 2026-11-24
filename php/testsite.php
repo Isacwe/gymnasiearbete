@@ -51,6 +51,7 @@ if (isset($_POST['getRoomNameSubmit'])) {
         <button type="submit" name="getRoomNameSubmit">Get room name</button>
         <input type="text" name="roomIdGetName" placeholder="Enter the Room Id ">
         <br>
+        <button type="submit" name></button>
     </form>
 </body>
 

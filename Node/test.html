@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO Test</title>
+  </head>
+  <body>
+    <h1>Socket.IO Test</h1>
+    <input type="text" id="message" />
+    <button id="send">Submit</button>
+    <ul id="messages"></ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      let message = document.getElementById("message");
+      let button = document.getElementById("send");
+      button.addEventListener("click", () => {
+        socket.emit("chat message", message.value);
+      });
+      socket.on("chat message", (message) => {
+        let messages = document.getElementById("messages");
+        let li = document.createElement("li");
+        li.textContent = message;
+        messages.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
