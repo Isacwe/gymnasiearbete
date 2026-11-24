@@ -1,36 +1,83 @@
-.message {
+body, #chatt-form, .message {
   display: flex;
+}
+
+body, #chatt-form {
+  flex-direction: column;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#meddelanden {
+  width: 600px;
+  height: 70vh;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+#chatt-form {
+  gap: 8px;
+}
+
+.message {
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
+  font-family: monospace;
 }
 
 .pfp {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: url(../files/Bilder/blewitDarkmodeInverted.png) no-repeat center / cover;
-  flex-shrink: 0;    
+  background: url(../files/Bilder/blewitDarkmodeInverted.png) center / cover no-repeat;
+  flex-shrink: 0;
   cursor: pointer;
-  border: none;
 }
 
 .message-text {
-  margin: 0;
+  margin-top: 1px;
   white-space: pre-wrap;
   word-break: break-word;
-  font-family: 'Baloo 2', cursive;
   color: rgb(172, 81, 81);
   font-size: medium;
 }
 
-.cloud-text {
+.cloud-text, #submit {
   font-family: 'Baloo 2', cursive;
   font-size: large;
   letter-spacing: 1px;
   color: #030303;
-  text-shadow:
-        0 2px 3px rgba(100, 160, 200, 0.15),
-        0 4px 8px rgba(70, 130, 180, 0.2),
-        0 0 12px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 2px 3px rgba(100, 160, 200, 0.15), 0 4px 8px rgba(70, 130, 180, 0.2), 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+#text-input {
+  width: 600px;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+#submit {
+  width: 600px;
+  height: 44px;
+  background: #f8f9fa;
+  border: 1px solid #ccc;
+  border-bottom: 4px solid #bbb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.05s, border-bottom-width 0.05s;
+}
+
+#submit:hover {
+  background: #ffffff;
+}
+
+#submit:active {
+  transform: translateY(3px);
+  border-bottom-width: 1px;
 }
