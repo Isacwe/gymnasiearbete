@@ -14,10 +14,15 @@ body {
 }
 
 #meddelanden {
-  width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 600px;
   height: 70vh;
   overflow-y: auto;
   margin-bottom: 10px;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
 #chatt-form {
@@ -26,9 +31,40 @@ body {
 
 .message {
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 5px;
+  gap: 14px;
+  width: 100%;
+  max-width: 100%;
+  padding: 6px 12px;
+  border-radius: 4px;
+  box-sizing: border-box;
   font-family: monospace;
+  transition: background-color 0.1s ease;
+}
+
+.message:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.message.own-message {
+  background-color: #c6c8c928;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.message-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: #666;
 }
 
 .pfp {
@@ -41,13 +77,14 @@ body {
 }
 
 .message-text {
-  margin-top: 1px;
+  margin: 0;
+  padding: 2px 0 0 0;
+  background-color: transparent;
   white-space: pre-wrap;
   word-break: break-word;
   color: rgb(0, 0, 0);
   font-size: large;
-  font-weight: bold;
-
+  font-weight: normal;
 }
 
 .cloud-text, #submit {
@@ -85,4 +122,10 @@ body {
 #submit:active {
   transform: translateY(3px);
   border-bottom-width: 1px;
+}
+
+#charCount {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
 }

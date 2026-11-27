@@ -22,15 +22,15 @@ $currentUser = $_SESSION['displayname'] ?? $_SESSION['username'];
 
     <form id="chatt-form">
     <textarea id="text-input" placeholder="Skriv ett meddelande..." required></textarea>
-    <p id="charCount">0 / 4001</p>
     <button type="submit" id="submit">Skicka</button>
+    <p id="charCount" class="cloud-text">0 / 4001</p>
     
   </form>
 
   <script>
     const CURRENT_USER = <?php echo json_encode($currentUser); ?>;
   </script>
-  
+
   <script src="../Javascript/dm.js"></script>
 </body>
 </html>
