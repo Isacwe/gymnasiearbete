@@ -14,7 +14,7 @@ body {
 }
 
 #meddelanden {
-  width: 600px;
+  width: 550px;
   height: 70vh;
   overflow-y: auto;
   margin-bottom: 10px;
@@ -35,7 +35,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: url(../files/Bilder/blewitDarkmodeInverted.png) center / cover no-repeat;
+  background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) center / cover no-repeat;
   flex-shrink: 0;
   cursor: pointer;
 }
@@ -44,8 +44,10 @@ body {
   margin-top: 1px;
   white-space: pre-wrap;
   word-break: break-word;
-  color: rgb(172, 81, 81);
-  font-size: medium;
+  color: rgb(0, 0, 0);
+  font-size: large;
+  font-weight: bold;
+
 }
 
 .cloud-text, #submit {

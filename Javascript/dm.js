@@ -16,7 +16,7 @@ form.addEventListener('submit', function(event) {
 
   const username = document.createElement('div');
   username.className = 'cloud-text';
-  username.textContent = 'Jag';
+  username.textContent = CURRENT_USER;
 
   const text = document.createElement('p');
   text.className = 'message-text';
@@ -37,4 +37,15 @@ input.addEventListener('keydown', function(event) {
     event.preventDefault();
     form.requestSubmit();
   }
+});
+
+const textarea = document.getElementById('text-input');
+const counter = document.getElementById('charCount');
+const limit = 4001;
+
+textarea.addEventListener('input', () => {
+    if(textarea.value.length > limit) {
+        textarea.value = textarea.value.slice(0, limit);
+    }
+    counter.textContent = `${textarea.value.length} / ${limit}`;
 });
