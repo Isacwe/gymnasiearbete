@@ -3,6 +3,8 @@ const input = document.getElementById('text-input');
 const meddelandeLista = document.getElementById('meddelanden');
 const counter = document.getElementById('charCount');
 const limit = 4001;
+const textLimit = document.getElementById('text-limit');
+let textTimeout;
 
 function renderMessage(sender, messageText) {
     const messageRow = document.createElement('div');
@@ -57,6 +59,7 @@ form.addEventListener('submit', function(event) {
 
     input.value = '';
     counter.textContent = `0 / ${limit}`;
+    counter.style.color = '';
 });
 
 input.addEventListener('keydown', function(event) {
@@ -71,6 +74,7 @@ input.addEventListener('input', () => {
         input.value = input.value.slice(0, limit);
     }
     counter.textContent = `${input.value.length} / ${limit}`;
+    counter.style.color = input.value.length >= limit ? '#dc3545' : '';
 });
 
 const settingsBtn = document.getElementById('settings-btn');

@@ -189,32 +189,19 @@ body {
 }
 
 .settings-wrapper {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
+  position: relative;
   font-family: 'Baloo 2', cursive;
 }
 
 #settings-btn {
-  padding: 8px 16px;
-  font-family: 'Baloo 2', cursive;
-  font-size: medium;
-  background: #f8f9fa;
-  border: 1px solid #ccc;
-  border-bottom: 4px solid #bbb;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.05s, border-bottom-width 0.05s;
+  background: url(../files/Bilder/BlewItLogoSuperFinalVersionNotReallyV3.2FinalDesignMaybeNotFinalButItIs.png) center / 50px 50px no-repeat;
 }
 
-#settings-btn:hover {
-  background: #ffffff;
-}
-
-#settings-btn:active {
-  transform: translateY(3px);
-  border-bottom-width: 1px;
+.settings-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 }
 
 #settings-dropdown {
@@ -246,4 +233,55 @@ body {
 #bg-opacity-slider {
   width: 100%;
   cursor: pointer;
+}
+
+#profile-btn {
+  background: url(../files/Bilder/blewitDarkmodeInverted.png) center / 50px 50px no-repeat;
+}
+
+#settings-btn, #profile-btn {
+  padding: 0;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.09s ease-in-out;
+}
+
+#settings-btn:hover, #profile-btn:hover {
+  transform: scale(1.08);
+}
+#settings-text,
+#profile-text {
+  margin: 0;
+  text-decoration: underline;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  user-select: none;
+}
+
+.settings,
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.top-left-controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
 }

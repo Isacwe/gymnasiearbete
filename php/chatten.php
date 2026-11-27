@@ -23,14 +23,25 @@ $currentUser = $_SESSION['displayname'] ?? $_SESSION['username'];
     </video>
   </div>
 
+    <div class="top-left-controls">
+
   <div class="settings-wrapper">
-    <button type="button" id="settings-btn">Settings</button>
+    <div class="settings-control">
+        <p id="settings-text">Settings</p>
+        <button type="button" id="settings-btn"></button>
+    </div>
     <div id="settings-dropdown" class="hidden">
       <label for="bg-color-picker">Bakgrundsfärg:</label>
       <input type="color" id="bg-color-picker" value="#3660d4">
       
       <label for="bg-opacity-slider">Genomskinlighet:</label>
       <input type="range" id="bg-opacity-slider" min="0" max="1" step="0.05" value="0.5">
+    </div>
+  </div>
+
+  <div class="profile">
+    <p id="profile-text">Profile</p>
+    <button type="button" id="profile-btn"></button>
     </div>
   </div>
 
@@ -43,6 +54,7 @@ $currentUser = $_SESSION['displayname'] ?? $_SESSION['username'];
       <p id="charCount" class="cloud-text">0 / 4001</p>
     </form>
   </div>
+</div>
 
   <script>
     const CURRENT_USER = <?php echo json_encode($currentUser); ?>;
