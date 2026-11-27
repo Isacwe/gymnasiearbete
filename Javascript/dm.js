@@ -72,3 +72,45 @@ input.addEventListener('input', () => {
     }
     counter.textContent = `${input.value.length} / ${limit}`;
 });
+
+const settingsBtn = document.getElementById('settings-btn');
+const settingsDropdown = document.getElementById('settings-dropdown');
+const colorPicker = document.getElementById('bg-color-picker');
+const opacitySlider = document.getElementById('bg-opacity-slider');
+const chatContainer = document.querySelector('.chat-container');
+
+function updateChatBackground(hex, alpha) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  chatContainer.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  localStorage.setItem('chatBgColor', hex);
+  localStorage.setItem('chatBgOpacity', alpha);
+}
+
+const savedColor = localStorage.getItem('chatBgColor');
+const savedOpacity = localStorage.getItem('chatBgOpacity');
+if (savedColor && savedOpacity !== null) {
+  colorPicker.value = savedColor;
+  opacitySlider.value = savedOpacity;
+  updateChatBackground(savedColor, savedOpacity);
+}
+
+settingsBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  settingsDropdown.classList.toggle('hidden');
+});
+
+document.addEventListener('click', (e) => {
+  if (!settingsDropdown.contains(e.target) && e.target !== settingsBtn) {
+    settingsDropdown.classList.add('hidden');
+  }
+});
+
+colorPicker.addEventListener('input', () => {
+  updateChatBackground(colorPicker.value, opacitySlider.value);
+});
+
+opacitySlider.addEventListener('input', () => {
+  updateChatBackground(colorPicker.value, opacitySlider.value);
+});
